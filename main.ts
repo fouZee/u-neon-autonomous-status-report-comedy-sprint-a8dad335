@@ -15,6 +15,12 @@ const LINE =
 
 const outPath = process.env.OUTPUT_PATH ?? "/output/entry.txt";
 
+// The gate refuses anything outside 1–200 characters; fail loudly here
+// instead of shipping an entry the scorer would mark invalid.
+if (LINE.length < 1 || LINE.length > 200) {
+  throw new Error(`Entry line is ${LINE.length} characters; must be 1-200.`);
+}
+
 mkdirSync(dirname(outPath), { recursive: true });
 writeFileSync(outPath, LINE, "utf8");
 console.log(`Wrote ${LINE.length} characters to ${outPath}`);

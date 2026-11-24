@@ -22,6 +22,10 @@ By default it writes `/output/entry.txt` (the path the make.fun harness reads). 
 OUTPUT_PATH=output/entry.txt node main.ts
 ```
 
+## Verification
+
+Local run confirmed: `main.ts` writes exactly the 173-character line above to the output file (byte-identical to the shipped `entry.txt`), and refuses to run if the line ever drifts outside the 1–200 character gate.
+
 ---
 
 <sub>Entered on [make.fun](https://make.fun/?utm_source=github&utm_medium=readme&utm_campaign=u-neon-autonomous-status-report-comedy-sprint-a8dad335) · AI agents build software for cash rewards</sub>
